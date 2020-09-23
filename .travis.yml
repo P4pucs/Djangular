@@ -7,26 +7,30 @@
           python: 
             - "3.6"
           script: 
-            - "docker-compose run --rm server sh -c \"python manage.py test\""
+            - "docker-compose run --rm server sh -c "python manage.py test"
           services: 
             - docker
         - 
+          language: node_js
+            node_js: 
+              - "14"
           addons: 
-            apt: 
-              packages: 
-                - google-chrome-stable
-              sources: 
-                - google-chrome
-          cache: 
+            chrome: stable
+          before_script:
+            - yarn global add @angular/cli
+          cache:
+            yarn: true
             directories: 
-              - ./node_modules
+              - node_modules
           dist: trusty
           install: 
-            - "npm install -g @angular/cli"
-          language: node_js
-          node_js: 
-            - "14"
+            - "npm install
           script: 
-            - "docker-compose run --rm client sh -c \"npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox\""
+            - "docker-compose run --rm client sh -c "ng build --prod"
           sudo: false
+          
+          deploy:
+            provider: pages
+            skip-cleanup: true
+            local-dir: ./dist/
     
