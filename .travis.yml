@@ -11,7 +11,7 @@ matrix:
         before_script: pip install docker-compose
 
         script:
-            - docker-compose run --rm server sh -c "python manage.py test && flake8"
+            - docker-compose run --rm server sh -c "python manage.py test"
 
         ####angular#####
         dist: trusty
