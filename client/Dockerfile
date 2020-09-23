@@ -6,5 +6,3 @@ WORKDIR /client
 COPY package.json .
 RUN npm install -g @angular/cli
 COPY . .
-
-CMD ["npm", "start"]

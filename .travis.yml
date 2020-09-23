@@ -1,0 +1,38 @@
+matrix:
+    include:
+        ####python####
+        language: python
+        python:
+        - "3.6"
+
+        services:
+        - docker
+
+        before_script: pip install docker-compose
+
+        script: - docker-compose run --rm server sh -c "python manage.py test"
+
+        ####angular#####
+        dist: trusty
+        sudo: false
+
+        language: node_js
+        node_js:
+        - '14'
+
+        addons:
+        apt:
+            sources:
+            - google-chrome
+            packages:
+            - google-chrome-stable
+
+        cache:
+        directories:
+            - ./node_modules
+
+        install:
+        - npm install
+
+        script:
+        - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
