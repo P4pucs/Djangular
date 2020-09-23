@@ -10,7 +10,8 @@ matrix:
 
         before_script: pip install docker-compose
 
-        script: - docker-compose run --rm server sh -c "python manage.py test"
+        script:
+            - docker-compose run --rm server sh -c "python manage.py test && flake8"
 
         ####angular#####
         dist: trusty
@@ -35,4 +36,4 @@ matrix:
         - npm install
 
         script:
-        - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+            - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
