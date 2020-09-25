@@ -13,7 +13,7 @@ class ModelTests(TestCase):
 			password=password
 		)
 
-        self.assertEqual(user.email, email.lower())
+        self.assertEqual(user.email, email.lower()) #also checks that email is not case sensitive
         self.assertTrue(user.check_password(password))
 
     def test_create_user_without_email_unsuccessful(self):
