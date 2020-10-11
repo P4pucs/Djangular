@@ -6,6 +6,6 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Image
-        fields = ('id', 'title')
+        fields = ('id', 'title', 'image')
         read_only_fields = ('id',)
 
