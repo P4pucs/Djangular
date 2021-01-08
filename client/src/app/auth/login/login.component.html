@@ -1,6 +1,6 @@
 <div id="container">
     <h1>Login</h1>
-    <form id="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
         <input class="input-field" formControlName="email" placeholder="email" type="email">
         <span id="email-error" *ngIf="loginForm.value.email.invalid">
