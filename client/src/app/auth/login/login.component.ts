@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
 
+  successful: boolean
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -28,8 +30,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.authService.loginUser(this.loginForm.value).subscribe(
-      res => console.log(res),
-      err => console.log(err)
+      res => {
+        this.successful = true
+        console.log(res)
+      },
+      err => {
+        console.log(err)
+        this.successful = false
+      }
     )
   }
 

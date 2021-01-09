@@ -11,6 +11,8 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup
 
+  successful: Boolean
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -32,8 +34,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.authService.registerUser(this.registerForm.value).subscribe(
-      res => console.log(res),
-      err => console.log(err)
+      res => {
+        this.successful = true
+        console.log(res)
+      },
+      err => {
+        console.log(err)
+        this.successful = false
+      }
     )
   }
 
