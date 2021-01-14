@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { ImageModule } from './image/image.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    AuthModule
+    AuthModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
