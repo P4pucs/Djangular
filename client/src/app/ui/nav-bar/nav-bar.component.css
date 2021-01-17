@@ -1,0 +1,118 @@
+.navbar {
+    background-color: blueviolet;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.navbar li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #ddd;
+}
+
+.navbar .title {
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px
+}
+
+.navbar .navbar-links {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+.navbar .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.navbar .menu-icon .nav-icon {
+    background: gray;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+.navbar .menu-icon .nav-icon:before,
+.navbar .menu-icon .nav-icon:after {
+  background:gray;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+}
+
+.navbar .menu-icon .nav-icon:before {
+    top: 5px;
+  }
+  
+.navbar .menu-icon .nav-icon:after {
+    top: -5px;
+  }
+
+.navbar .menu-btn {
+    display: none;
+}
+
+.navbar .menu-btn:checked ~ .navbar-links {
+    max-height: 240px;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon {
+    background-color: transparent;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.navbar .menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+a {
+    color: black;
+}
+
+@media (min-width: 48em) {
+    .navbar li {
+        float: left;
+    }
+
+    .navbar li a {
+        padding: 20px 30px;
+    }
+
+    .navbar .navbar-links {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    .navbar .menu-icon {
+        display: none;
+    }
+}

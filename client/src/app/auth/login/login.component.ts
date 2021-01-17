@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       res => {
         this.successful = true
         console.log(res)
+        localStorage.setItem('token', res.token)
       },
       err => {
         console.log(err)
