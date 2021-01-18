@@ -1,7 +1,9 @@
-<h2>Add image</h2>
-<form #imageForm=ngForm (ngSubmit)="uploadImage()">
-    <input type="file" (change)="readImage($event.target.files)" required>
-    <label>Name</label>
-    <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" placeholder="optional">
-    <input type="submit">
-</form>
+<div id="container">
+    <h2>Add image</h2>
+    <form #imageForm=ngForm (ngSubmit)="uploadImage()">
+        <input type="file" (change)="readImage($event.target.files)" required>
+        <label>Name</label>
+        <input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" placeholder="optional">
+        <input type="submit">
+    </form>
+</div>
